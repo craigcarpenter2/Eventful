@@ -10,16 +10,33 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity= "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin="" />
-
     <style>
         #map{width:70%; height:0px}
     </style>
 
     <!--navigation bar-->
-    <ol>
-        <li><a href="javascript:__renderNewEventScreen();">New Event</a></li>
-        <li><a href="javascript:__renderViewEventsScreen();">View Events</a></li>
-    </ol>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <img src="" class="navbar-brand">
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="javascript:__renderNewEventScreen();">New Event</a></li>
+                <li><a href="javascript:__renderViewEventsScreen();">View Events</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
 </head>
 <body>
     <form id="newEvent" runat="server">
