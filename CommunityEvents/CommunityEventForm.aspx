@@ -10,20 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <label>Event Name</label>
-            <input type="text" />
-            
-        </div>
-        <div>
-            <label>City</label>
-            <input type="text" />
-        </div>
-        <div>
-            <label>State</label>
-            <input type="text" />
-        </div>
-        <div>
-            <label>Zip</label>
-            <input type="text" />
+            <div><input id="event_title" type="text" /></div>
         </div>
         <div>
             <label>Date</label>
@@ -35,7 +22,7 @@
         </div>
         <div>
             <label>Description</label>
-            <input type="text" />
+            <div><textarea name="event_description" id="event_description" rows="5" maxlength="500"></textarea></div>
         </div>
         <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
