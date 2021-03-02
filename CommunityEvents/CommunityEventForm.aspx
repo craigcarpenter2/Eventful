@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>New Event</title>
+    <title>Eventful</title>
 
     <!--import necessary for map-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -14,9 +14,15 @@
     <style>
         #map{width:70%; height:0px}
     </style>
+
+    <!--navigation bar-->
+    <ol>
+        <li><a href="javascript:__renderNewEventScreen();">New Event</a></li>
+        <li><a href="javascript:__renderViewEventsScreen();">View Events</a></li>
+    </ol>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="newEvent" runat="server">
         <div>
             <label>Event Name</label>
             <div><input id="title" type="text" /></div>
@@ -136,5 +142,26 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
         </p>
     </form>
+
+    <!--TODO screen for users to view events-->
+    <div id="viewEvents">
+    </div>
+
+    <script>
+        //this funtion shows the form to create a new event on
+        //it also hides the screen where users view events
+        function __renderNewEventScreen() {
+            document.getElementById("newEvent").style.display = "inline";
+            document.getElementById("viewEvents").style.display = "none";
+        }
+        //this function shows the screen where users can view events
+        //it also hides the form to create a new event on
+        function __renderViewEventsScreen(){
+            document.getElementById("newEvent").style.display = "none";
+            document.getElementById("viewEvents").style.display = "inline";
+        }
+        
+    </script>
+
 </body>
 </html>
