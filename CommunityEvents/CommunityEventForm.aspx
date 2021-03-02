@@ -48,8 +48,8 @@
 
         <!--Get location of event-->
         <div class="row">
-            <input id="event_latitude" type="text" value="" style="display:none" />  <!--invisible text inputs for coordinates-->
-            <input id="event_longitude" type="text" value="" style="display:none"/>
+            <input id="coords_latitude" type="text" value="" style="display:none" />  <!--invisible text inputs for coordinates-->
+            <input id="coords_longitude" type="text" value="" style="display:none"/>
 
         
             <div id="map"></div>  <!--map will be generated in this div-->
@@ -72,8 +72,8 @@
 
             function showPosition(position) {
                 //save user coordinates to invisible text field
-                document.getElementById("event_latitude").value = position.coords.latitude;
-                document.getElementById("event_longitude").value = position.coords.longitude;
+                document.getElementById("coords_latitude").value = position.coords.latitude;
+                document.getElementById("coords_longitude").value = position.coords.longitude;
 
                 buildMap(position.coords.latitude, position.coords.longitude);
 
@@ -117,8 +117,8 @@
                         var lat = coord[0].split('(');
                         var long = coord[1].split(')');
 
-                        document.getElementById("event_latitude").value = lat[1];
-                        document.getElementById("event_longitude").value = long[0];
+                        document.getElementById("coords_latitude").value = lat[1];
+                        document.getElementById("coords_longitude").value = long[0];
 
                         popup
                             .setLatLng(ev.latlng)
