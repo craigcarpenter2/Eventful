@@ -30,9 +30,17 @@ namespace CommunityEvents.Models
 
         [Required]
         public string Description { get; set; }
-        
-        
 
-        
+        public Event(int id, string title, string city, string state, long zip, DateTime date, string venue, string description)
+        {
+            Id = id;
+            Title = title;
+            City = city;
+            State = state;
+            Zip = zip;
+            Date = date;
+            Venue = venue;
+            Description = description;
+        }
     }
 }
