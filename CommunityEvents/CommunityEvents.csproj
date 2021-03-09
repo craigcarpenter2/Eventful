@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Data.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="CommunityEventForm.aspx.cs">
       <DependentUpon>CommunityEventForm.aspx</DependentUpon>
