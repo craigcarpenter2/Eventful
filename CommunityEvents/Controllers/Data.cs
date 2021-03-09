@@ -55,7 +55,7 @@ namespace CommunityEvents.Controllers
 
                 // Need to add Event constructor
                 // Creates new Event and adds to list using the 8 variables from the file.
-                events.Add(new Event(content[0], content[1], content[2], content[3], content[4], content[5], content[6], content[7]));
+                events.Add(new Event(Convert.ToInt16(content[0]), content[1], content[2], content[3], Convert.ToInt16(content[4]), Convert.ToDateTime(content[5]), content[6], content[7]));
 
                 // Clear content.
                 content.Clear();
