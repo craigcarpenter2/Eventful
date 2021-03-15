@@ -47,6 +47,29 @@ namespace CommunityEvents.Controllers
         };
 
         [HttpPost]
+        [Route ("api/Event/PostNewEvent")]
+        public IHttpActionResult PostNewEvent(Event newEvent){
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data.");
+            }
+            var eventsList = new List<Event>();
+            eventsList.Add(new Event
+            {
+                Id = newEvent.Id,
+                Title = newEvent.Title,
+                City = newEvent.City,
+                State = newEvent.State,
+                Zip = newEvent.Zip,
+                Date = newEvent.Date,
+                Venue = newEvent.Venue,
+                Description = newEvent.Description
+            });
+            return Ok();
+            
+        }
+
+        [HttpPost]
         public Boolean AddEventDetails(int id, string title, string city,
             string state, long zip, DateTime date, string venue, string description)
         {
