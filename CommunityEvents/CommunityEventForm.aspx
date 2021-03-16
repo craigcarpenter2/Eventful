@@ -56,7 +56,10 @@
             <label>Description</label>
             <div><label for="event_description" id="characters_left">(500 characters remaining.)</label></div>
             <div><textarea name="event_description" id="description" rows="6" maxlength="500"></textarea></div>
+
         </div>
+
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 
         <!--script to have 'characters remaining' counter updated-->
         <script>

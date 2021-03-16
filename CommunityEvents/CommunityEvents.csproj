@@ -102,12 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CommunityEventForm.aspx" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\api\EventController.cs" />
     <Compile Include="CommunityEventForm.aspx.cs">
       <DependentUpon>CommunityEventForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +124,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <None Include="Views\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Views\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

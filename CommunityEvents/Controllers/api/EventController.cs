@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace CommunityEvents.Controllers
+namespace CommunityEvents.Controllers.api
 {
     public class EventController : ApiController
     {
@@ -144,9 +144,5 @@ namespace CommunityEvents.Controllers
                         
 
         }
-
-       
-        
-
     }
 }
