@@ -42,5 +42,9 @@ namespace CommunityEvents.Models
             Venue = venue;
             Description = description;
         }
+
+        public Event()
+        {
+        }
     }
 }
