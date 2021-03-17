@@ -29,26 +29,17 @@ namespace CommunityEvents
                 client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
+                String apiParameter = "?zip=" + ZipCode.Text;
                 //HTTP GET
-                HttpResponseMessage response = client.GetAsync("").Result;
+                HttpResponseMessage response = client.GetAsync(apiParameter).Result;
 
-                //if get was successful...
+                //if GET was successful, save response into Event list (dataObjects)
                 if (response.IsSuccessStatusCode)
                 {
                     dataObjects = response.Content.ReadAsAsync<IEnumerable<Event>>().Result;
-
                 }
-                //if GET failed...
-                else
-                {
-                    //TODO error catching
-
-                }
-
-                //iterate through response and populate web page with events
 
                 //declare variables
-                int length = dataObjects.Count();
                 Event currentEvent = null;
                 HtmlTableRow tRow = null;
                 HtmlTableCell cTitle = null;
@@ -59,6 +50,18 @@ namespace CommunityEvents
                 HtmlTableCell cZip = null;
                 HtmlTableCell cDescription = null;
 
+                //if GET failed...
+                int length;
+               if (dataObjects == null)
+                {
+                    return;
+                }
+
+                //iterate through response Events list and populate web page with events
+                else
+                {
+                    length = dataObjects.Count();
+                }
                 for (int i = 0; i < length; i++)
                 {
                     //create new empty row and cells

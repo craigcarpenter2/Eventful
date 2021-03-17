@@ -10,7 +10,8 @@
 <body>
     <form id="ViewEvents" runat="server">
         <div><h1>Welcome to Eventful!</h1></div>
-        <asp:Button ID="GetLocalEvents" runat="server" Text="Get Events" OnClick="GetLocalEvents_Click" />
+        <asp:TextBox ID="ZipCode" runat="server" placeholder="Enter local zip code"></asp:TextBox>
+        <asp:Button ID="GetLocalEvents" runat="server" Text="Get Local Events" OnClick="GetLocalEvents_Click" />
     </form>
     <table runat="server" id="ResultTable" border="1" style="width:100%;">
         <tr>

@@ -24,6 +24,15 @@ namespace CommunityEvents
         protected global::System.Web.UI.HtmlControls.HtmlForm ViewEvents;
 
         /// <summary>
+        /// ZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ZipCode;
+
+        /// <summary>
         /// GetLocalEvents control.
         /// </summary>
         /// <remarks>
