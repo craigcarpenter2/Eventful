@@ -27,8 +27,8 @@
                     <td><asp:TextBox ID="TextBox1" runat="server" placeholder=""></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="Label3" runat="server" Text="Description"></asp:Label></td>
-                    <td><asp:TextBox ID="Description:" runat="server"></asp:TextBox></td>
+                    <td><asp:Label ID="Label3" runat="server" Text="Description:"></asp:Label></td>
+                    <td><asp:TextBox ID="Description" runat="server"></asp:TextBox></td>
                 </tr>
 
 
