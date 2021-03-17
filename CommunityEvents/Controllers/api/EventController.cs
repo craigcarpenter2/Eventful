@@ -13,35 +13,35 @@ namespace CommunityEvents.Controllers.api
         //List containing events in different zip codes
         List<Event> events = new List<Event>()
         {
-          new Event(){Id = 0, Title = "fun event", City = "Huntington", State = "WV",
+          new Event(){Id = 0, UserId = 0, Title = "fun event", City = "Huntington", State = "WV",
               Zip = 25705, Date = DateTime.Today.AddDays(5), Venue = "CTC",
               Description =  "Church Service"},
 
-          new Event(){Id = 1, Title = "Craft Festival", City = "Huntington", State = "WV",
+          new Event(){Id = 1, UserId = 0, Title = "Craft Festival", City = "Huntington", State = "WV",
               Zip = 25504, Date = DateTime.Today.AddDays(20), Venue = "Barboursville Park",
               Description =  "Festival of crafts"},
 
-          new Event(){Id = 2, Title = "Country Concert", City = "Charleston", State = "WV",
+          new Event(){Id = 2, UserId = 1, Title = "Country Concert", City = "Charleston", State = "WV",
               Zip = 25302, Date = DateTime.Today.AddDays(8), Venue = "Charleston Civic Center",
               Description =  "Local Country Concert"},
 
-          new Event(){Id = 3, Title = "Play", City = "Ashland", State = "KY",
+          new Event(){Id = 3, UserId = 2, Title = "Play", City = "Ashland", State = "KY",
               Zip = 41101, Date = DateTime.Today.AddDays(90), Venue = "Paramount",
               Description =  "Wicked the play"},
 
-          new Event(){Id = 4, Title = "State Fair", City = "Ashland", State = "KY",
+          new Event(){Id = 4, UserId = 3, Title = "State Fair", City = "Ashland", State = "KY",
               Zip = 41101, Date = DateTime.Today.AddDays(5), Venue = "Ashland Riverfront",
               Description =  "State Fair"},
 
-          new Event(){Id = 5, Title = "Yoga in the park", City = "Huntington", State = "WV",
+          new Event(){Id = 5, UserId = 3, Title = "Yoga in the park", City = "Huntington", State = "WV",
               Zip = 25705, Date = DateTime.Today.AddDays(20), Venue = "Ritter Park",
               Description =  "Yoga"},
 
-          new Event(){Id = 6, Title = "Baseball Game", City = "Charleston", State = "WV",
+          new Event(){Id = 6, UserId = 3, Title = "Baseball Game", City = "Charleston", State = "WV",
               Zip = 25302, Date = DateTime.Today.AddDays(25), Venue = "Appalachian Power Park",
               Description =  "Baseball Game"},
 
-          new Event(){Id = 7, Title = "Pumpkin Festival", City = "Milton", State = "WV",
+          new Event(){Id = 7, UserId = 4, Title = "Pumpkin Festival", City = "Milton", State = "WV",
               Zip = 25541, Date = DateTime.Today.AddDays(240), Venue = "CTC",
               Description =  "WV Pumpkin Festival"},
         };
@@ -66,11 +66,10 @@ namespace CommunityEvents.Controllers.api
                 Description = newEvent.Description
             });
             return Ok();
-            
         }
 
         [HttpPost]
-        public Boolean AddEventDetails(int id, string title, string city,
+        public Boolean AddEventDetails(int id, int userId, string title, string city,
             string state, long zip, DateTime date, string venue, string description)
         {
             
@@ -79,6 +78,7 @@ namespace CommunityEvents.Controllers.api
             eventsList.Add(new Event
             {
                 Id = id,
+                UserId = userId,
                 Title = title,
                 City = city,
                 State = state,

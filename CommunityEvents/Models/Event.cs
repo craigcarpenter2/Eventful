@@ -8,8 +8,11 @@ namespace CommunityEvents.Models
     public class Event
     {
         //Getters and Setters for each parameter 
-
+        [Required]
         public int Id { get; set; }
+
+        [Required]
+        public int UserId { get; set; }
 
         [Required]
         [Display(Name= "Event Name")]
