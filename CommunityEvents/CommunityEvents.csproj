@@ -103,6 +103,7 @@
   <ItemGroup>
     <Content Include="CommunityEventForm.aspx" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateEventForm.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="CommunityEventForm.aspx.designer.cs">
       <DependentUpon>CommunityEventForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEventForm.aspx.cs">
+      <DependentUpon>CreateEventForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateEventForm.aspx.designer.cs">
+      <DependentUpon>CreateEventForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

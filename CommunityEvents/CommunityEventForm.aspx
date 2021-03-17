@@ -8,6 +8,13 @@
 
 </head>
 <body>
+    <ul>
+        <li><a href="#">See Nearby Events</a></li>
+        <li><a href="CreateEventForm.aspx">Post New Event</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">My Profile</a></li>
+    </ul>
     <form id="ViewEvents" runat="server">
         <div><h1>Welcome to Eventful!</h1></div>
         <asp:TextBox ID="ZipCode" runat="server" placeholder="Enter local zip code"></asp:TextBox>
