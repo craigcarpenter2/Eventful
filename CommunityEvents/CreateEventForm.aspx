@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+    <!--Navigation Options-->
     <ul>
         <li><a href="CommunityEventForm.aspx">See Nearby Events</a></li>
         <li><a href="#">Post New Event</a></li>
@@ -14,9 +15,11 @@
         <li><a href="#">API</a></li>
         <li><a href="#">My Profile</a></li>
     </ul>
+
     <form id="CreateNewEvent" runat="server">
         <h1>Create New Event</h1>
         <div>
+            <!--Get the Title, Venue, Description, Time from the user-->
             <table>
                 <tr>
                     <td><asp:Label ID="Label1" runat="server" Text="Title:"></asp:Label></td>
@@ -30,11 +33,17 @@
                     <td><asp:Label ID="Label3" runat="server" Text="Description:"></asp:Label></td>
                     <td><asp:TextBox ID="Description" runat="server"></asp:TextBox></td>
                 </tr>
-
-
-
+                <tr>
+                    <td><asp:Label ID="Label4" runat="server" Text="Time:"></asp:Label></td>
+                    <td><asp:TextBox ID="Time" runat="server" placeholder="00:00"></asp:TextBox></td>
+                </tr>
             </table>
+
+            <!--calendar to pick date of event-->
+            <asp:Calendar ID="Calendar" runat="server" OnSelectionChanged="Calendar_SelectionChanged"></asp:Calendar>
+
         </div>
+        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
     </form>
 </body>
 </html>
