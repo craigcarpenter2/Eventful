@@ -11,7 +11,9 @@
     integrity= "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin="" />
     <style>
-        #map{width:70%; height:0px}
+        #map{width:12%; 
+height:122px
+        }
     </style>
 
     <!--navigation bar-->
@@ -26,8 +28,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-            <img src="" class="navbar-brand">
-          </div>
+            &nbsp;</div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="javascript:__renderNewEventScreen();">New Event</a></li>
@@ -42,20 +43,27 @@
     <form id="newEvent" runat="server">
         <div>
             <label>Event Name</label>
-            <div><input id="title" type="text" /></div>
+            <div>
+                <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                <br />
+            </div>
         </div>
         <div>
-            <label>Date</label>
-            <input id="date" type="text" />
+            <label>Date</label>&nbsp;
+            <br />
+            <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
         </div>
         <div>
-            <label>Venue</label>
-            <input id="venue" type="text" />
+            <label>Venue</label>&nbsp;
+            <br />
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         </div>
         <div>
             <label>Description</label>
             <div><label for="event_description" id="characters_left">(500 characters remaining.)</label></div>
-            <div><textarea name="event_description" id="description" rows="6" maxlength="500"></textarea></div>
+            <div>
+                <asp:TextBox ID="TextBox3" runat="server" Height="120px" Width="261px"></asp:TextBox>
+            </div>
         </div>
 
         <!--script to have 'characters remaining' counter updated-->
@@ -72,10 +80,7 @@
         <!--Get location of event-->
         <div class="row">
             <input id="coords_latitude" type="text" value="" style="display:none" />  <!--invisible text inputs for coordinates-->
-            <input id="coords_longitude" type="text" value="" style="display:none"/>
-
-        
-            <div id="map"></div>  <!--map will be generated in this div-->
+            <input id="coords_longitude" type="text" value="" style="display:none"/>  <!--map will be generated in this div-->
 
             <!-- Get the leaflet JavaScript file
                 this is done before the map is initialized in buildMap() -->
@@ -156,7 +161,7 @@
 
 
         <p>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" />
         </p>
     </form>
 
