@@ -15,8 +15,9 @@ namespace CommunityEvents.Controllers.api
             new User()
             {
                 Username = "Eric",
-                Password = "Shoemaker"
-                
+                Password = "Shoemaker",
+                Email = "shoemaker30@marshall.edu",
+                HomeZip = 25510
             }
             
         };
@@ -28,9 +29,16 @@ namespace CommunityEvents.Controllers.api
         }
 
         // GET api/<controller>/5
-        public string Get(String username, String password)
+        public User Get(String username, String password)
         {
-            return 
+            foreach (User user in users)
+            {
+                if (user.Username == username && user.Password == password)
+                {
+                    return user;
+                }
+            }
+            return null;
         }
 
         // POST api/<controller>
