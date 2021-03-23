@@ -42,6 +42,9 @@
             <!--calendar to pick date of event-->
             <asp:Calendar ID="Calendar" runat="server" OnSelectionChanged="Calendar_SelectionChanged"></asp:Calendar>
 
+            <asp:TextBox ID="Latitude" runat="server" style="display:none"></asp:TextBox>
+            <asp:TextBox ID="Longitude" runat="server" style="display:none"></asp:TextBox>
+
         </div>
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
     </form>

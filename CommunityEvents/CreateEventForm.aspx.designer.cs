@@ -105,6 +105,24 @@ namespace CommunityEvents
         protected global::System.Web.UI.WebControls.Calendar Calendar;
 
         /// <summary>
+        /// Latitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Latitude;
+
+        /// <summary>
+        /// Longitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Longitude;
+
+        /// <summary>
         /// Submit control.
         /// </summary>
         /// <remarks>
