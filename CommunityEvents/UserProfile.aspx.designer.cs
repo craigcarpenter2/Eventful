@@ -11,44 +11,26 @@ namespace CommunityEvents
 {
 
 
-    public partial class EventWebForm
+    public partial class UserProfile
     {
 
         /// <summary>
-        /// MyProfileLink control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor MyProfileLink;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ViewEvents control.
+        /// WelcomeMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ViewEvents;
-
-        /// <summary>
-        /// ZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ZipCode;
-
-        /// <summary>
-        /// GetLocalEvents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetLocalEvents;
+        protected global::System.Web.UI.WebControls.Label WelcomeMessage;
 
         /// <summary>
         /// ResultTable control.

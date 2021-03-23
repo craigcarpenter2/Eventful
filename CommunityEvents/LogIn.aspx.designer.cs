@@ -11,52 +11,70 @@ namespace CommunityEvents
 {
 
 
-    public partial class EventWebForm
+    public partial class LogIn
     {
 
         /// <summary>
-        /// MyProfileLink control.
+        /// login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor MyProfileLink;
+        protected global::System.Web.UI.HtmlControls.HtmlForm login;
 
         /// <summary>
-        /// ViewEvents control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ViewEvents;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ZipCode control.
+        /// Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ZipCode;
+        protected global::System.Web.UI.WebControls.TextBox Username;
 
         /// <summary>
-        /// GetLocalEvents control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetLocalEvents;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ResultTable control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable ResultTable;
+        protected global::System.Web.UI.WebControls.TextBox Password;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// NoAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NoAccount;
     }
 }

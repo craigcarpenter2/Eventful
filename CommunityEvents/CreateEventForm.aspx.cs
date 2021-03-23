@@ -11,11 +11,28 @@ namespace CommunityEvents
 {
     public partial class CreateEventForm : System.Web.UI.Page
     {
+        
+
         //save the state of date, time, and location here
         DateTime eventDate;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null)
+            {
+                Response.Redirect("~/LogIn.aspx");
+            }
+            if (Session["Username"].Equals(""))
+            {
+                MyProfileLink.Attributes.Add("style", "display:none");
+            }
+
+
+
+
+            {
+
+            }
             eventDate = new DateTime();
         }
 

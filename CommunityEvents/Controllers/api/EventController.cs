@@ -114,7 +114,7 @@ namespace CommunityEvents.Controllers.api
              return eventsList;
         }
         
-        /**
+        /*
         [HttpGet]
         public List<Event> GetEventDetails(int Id)
         {
@@ -125,7 +125,19 @@ namespace CommunityEvents.Controllers.api
            // return ("Event Details");
 
         }
-        **/
+        */
+
+        [HttpGet]
+        public List<Event> GetUserEvents(String Username, int UserId)
+        {
+            var eventsList = new List<Event>();
+            var userEvents = events.Where(evt => evt.UserId == UserId);
+            eventsList.AddRange(userEvents);
+            return eventsList;
+            // return ("Event Details");
+
+        }
+
 
         [HttpDelete]
         public string DeleteEventDetails(int Id)

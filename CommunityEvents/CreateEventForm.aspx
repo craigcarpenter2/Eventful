@@ -13,7 +13,7 @@
         <li><a href="#">Post New Event</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">API</a></li>
-        <li><a href="#">My Profile</a></li>
+        <li><a runat="server" id="MyProfileLink" href="UserProfile.aspx">My Profile</a></li>
     </ul>
 
     <form id="CreateNewEvent" runat="server">

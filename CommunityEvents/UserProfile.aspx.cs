@@ -1,19 +1,18 @@
-﻿using System;
-using CommunityEvents.Models;
+﻿using CommunityEvents.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace CommunityEvents
 {
-    public partial class EventWebForm : System.Web.UI.Page
+    public partial class UserProfile : System.Web.UI.Page
     {
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,26 +20,20 @@ namespace CommunityEvents
             {
                 Response.Redirect("~/LogIn.aspx");
             }
-            if (Session["Username"].Equals(""))
-            {
-                MyProfileLink.Attributes.Add("style","display:none");
-            }
-
             
-        }
+            WelcomeMessage.Text = "Welcome Back, " + Session["Username"] as string;
 
-        protected void GetLocalEvents_Click(object sender, EventArgs e)
-        {
+
             IEnumerable<Event> dataObjects = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44324/api/event");
+                client.BaseAddress = new Uri("https://localhost:44324/api/event/GetUserEvents");
 
                 // Add an Accept header for JSON format.
                 client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-                String apiParameter = "?zip=" + ZipCode.Text;
+                String apiParameter = "?Username="+Session["Username"] as string +"?UserId=" + Session["UserId"];
                 //HTTP GET
                 HttpResponseMessage response = client.GetAsync(apiParameter).Result;
 
@@ -63,7 +56,7 @@ namespace CommunityEvents
 
                 //if GET failed...
                 int length;
-               if (dataObjects == null)
+                if (dataObjects == null)
                 {
                     return;
                 }
@@ -108,6 +101,8 @@ namespace CommunityEvents
                     ResultTable.Rows.Add(tRow);
                 }
             }
+
+
 
         }
     }
