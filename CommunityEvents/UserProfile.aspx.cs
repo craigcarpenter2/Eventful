@@ -33,7 +33,7 @@ namespace CommunityEvents
                 client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-                String apiParameter = "?Username="+Session["Username"] as string +"?UserId=" + Session["UserId"];
+                String apiParameter = "?Username="+Session["Username"] as string +"+UserId=" + Session["UserId"] as string;
                 //HTTP GET
                 HttpResponseMessage response = client.GetAsync(apiParameter).Result;
 
