@@ -6,6 +6,11 @@
 <head runat="server">
     <title>Events</title>
 
+    <!-- map leaflet imports-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity= "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" /> 
+
 </head>
 <body>
     <ul>
@@ -31,6 +36,27 @@
             <th>Description</th>
         </tr>
     </table>
+    <div>
+        <!--area to create open street map-->
+        <div id="map"></div> 
+                
+        <!-- Get the leaflet JavaScript file
+            notice that this is done before the map is initialized-->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity= 
+        "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script> 
+    </div>
+
+    <script>
+        function buildMap() {
+
+
+        }
+
+    </script>
+
+
 
    
         

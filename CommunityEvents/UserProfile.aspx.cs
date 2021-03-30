@@ -27,13 +27,13 @@ namespace CommunityEvents
             IEnumerable<Event> dataObjects = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44324/api/event/GetUserEvents");
+                client.BaseAddress = new Uri("https://localhost:44324/api/event/");
 
                 // Add an Accept header for JSON format.
                 client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-                String apiParameter = "?Username="+Session["Username"] as string +"+UserId=" + Session["UserId"] as string;
+                String apiParameter = "?Username="+Session["Username"] as string +"&UserId=" + Session["UserId"] as string;
                 //HTTP GET
                 HttpResponseMessage response = client.GetAsync(apiParameter).Result;
 
