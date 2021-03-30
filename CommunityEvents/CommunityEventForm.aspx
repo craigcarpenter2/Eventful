@@ -28,7 +28,7 @@
         <asp:TextBox ID="ZipCode" runat="server" placeholder="Enter local zip code"></asp:TextBox>
         <asp:Button ID="GetLocalEvents" runat="server" Text="Get Local Events" OnClick="GetLocalEvents_Click" />
 
-        <div>
+       <div>
         <!--area to create open street map-->
         <div id="map"></div> 
                 
@@ -39,6 +39,8 @@
         "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script> 
     </div>
+
+
 
     <script>
 
@@ -63,21 +65,14 @@
         map.setView([38.42369328698392, -82.42647887471767], 15);
 
 
-        function buildMap() {
 
-            
-
-                
-
-            // Set the view of the map 
-            // with the latitude, longitude and the zoom value 
-            map.setView([34.92235813668116, -82.44061981525645], 15);
-
-
-
-
-
+        function addEventsToMap(events) {
+            //need to get 'dataObjects' list of events from codebehind and add them to the map
+           
         }
+
+
+        
 
         </script>
     </form>

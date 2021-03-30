@@ -29,6 +29,7 @@ namespace CommunityEvents
 
             
         }
+   
 
         protected void GetLocalEvents_Click(object sender, EventArgs e)
         {
@@ -74,6 +75,7 @@ namespace CommunityEvents
                 {
                     length = dataObjects.Count();
                 }
+
                 for (int i = 0; i < length; i++)
                 {
                     //create new empty row and cells
@@ -96,6 +98,7 @@ namespace CommunityEvents
                     cZip.InnerText = currentEvent.Zip.ToString();
                     cDescription.InnerText = currentEvent.Description;
 
+                    
                     //add these cells to the current row
                     tRow.Controls.Add(cTitle);
                     tRow.Controls.Add(cDateTime);
@@ -110,9 +113,15 @@ namespace CommunityEvents
                 }
             }
 
-            //call buildmap 
-            ScriptManager.RegisterStartupScript(this.Page, typeof(Page), "text", "buildMap()", true);
+
+            
+
+
+            
+
+
 
         }
     }
+    
 }

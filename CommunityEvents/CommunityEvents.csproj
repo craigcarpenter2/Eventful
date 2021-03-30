@@ -107,6 +107,7 @@
     <Content Include="Global.asax" />
     <Content Include="LogIn.aspx" />
     <Content Include="Style\CommunityEventForm.css" />
+    <Content Include="Style\CreateEventForm.css" />
     <Content Include="UserProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

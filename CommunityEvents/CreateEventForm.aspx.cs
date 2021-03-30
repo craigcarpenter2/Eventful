@@ -6,6 +6,10 @@ using System.Net.Http;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Http.Headers;
+using System.Dynamic;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace CommunityEvents
 {
@@ -29,11 +33,8 @@ namespace CommunityEvents
 
 
 
-
-            {
-
-            }
             eventDate = new DateTime();
+            ErrorMessage.Visible = false;
         }
 
         protected void Calendar_SelectionChanged(object sender, EventArgs e)
@@ -46,28 +47,83 @@ namespace CommunityEvents
         protected void Submit_Click(object sender, EventArgs e)
         {
             //add the enterered time to the DateTime object
-            /*
-            int hours = Int32.Parse(Time.Text.Substring(0,2));
-            int minutes = Int32.Parse(Time.Text.Substring(3,2));
+            
+            int hours = Int32.Parse(Time.Text.Substring(0, 2));
+            int minutes = Int32.Parse(Time.Text.Substring(3, 2));
             TimeSpan time = new TimeSpan(hours, minutes, 0);
             DateTime eventDateTime = eventDate.Add(time);
-            */
-            /*
-            Event testEvent = new Event()
+
+
+            //api
+            string state = null;
+            string city = null ;
+            string zip = null ;
+
+            using (var client = new HttpClient())
             {
-                Title = "test event",
-                Venue = "venue",
-                Date = new DateTime(),
-                City = "city",
-                State = "state",
-                Zip = 25510,
-                Description = "this is a test for the post method"
+                
+                client.BaseAddress = new Uri("https://api.bigdatacloud.net/data/");
+
+                // Add an Accept header for JSON format.
+                client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+                String apiParameter = "reverse-geocode-client?latitude=" + Latitude.Text + "&longitude=" + Longitude.Text + "&localityLanguage=en";
+                HttpResponseMessage response = client.GetAsync(apiParameter).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = response.Content.ReadAsAsync<ExpandoObject>();
+                    var _dataResponse = JToken.Parse(JsonConvert.SerializeObject(data));
+                    state = _dataResponse["principalSubdivision"].ToString();
+                    city = _dataResponse["city"].ToString();
+                    zip = _dataResponse["postcode"].ToString();
+                }
+
+                else
+                {
+                    //api call failed, so cant make event
+                    ErrorMessage.Visible = true;
+                    return;
+                }
+            }
+
+
+
+
+
+
+
+            Event newEvent = new Event()
+            {
+                Id = 1,
+                UserId = (int) Session["UserId"],
+                Title = Title.Text,
+                Venue = Venue.Text,
+                City = city,
+                State = state,
+                Zip = long.Parse(zip),
+                Latitude = Double.Parse(Latitude.Text),
+                Longitude = Double.Parse(Longitude.Text),
+                Date = eventDateTime,
+                Description = Description.Text
             };
-            */
-            
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44324/");
+
+                // Add an Accept header for JSON format.
+                client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
 
 
 
+                var response = client.PostAsJsonAsync("api/Event/PostNewEvent", newEvent).Result;
+
+
+
+            }
         }
     }
 }

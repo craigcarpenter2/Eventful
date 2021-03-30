@@ -53,10 +53,10 @@ namespace CommunityEvents.Controllers.api
             {
                 return BadRequest("Invalid data.");
             }
-            var eventsList = new List<Event>();
-            eventsList.Add(new Event
+            events.Add(new Event
             {
                 Id = newEvent.Id,
+                UserId = newEvent.UserId,
                 Title = newEvent.Title,
                 City = newEvent.City,
                 State = newEvent.State,
@@ -75,9 +75,8 @@ namespace CommunityEvents.Controllers.api
             string state, long zip, double latitude, double longitude, DateTime date, string venue, string description)
         {
             
-            var eventsList = new List<Event>();
             
-            eventsList.Add(new Event
+            events.Add(new Event
             {
                 Id = id,
                 UserId = userId,
