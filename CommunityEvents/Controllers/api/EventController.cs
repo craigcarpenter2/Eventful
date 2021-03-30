@@ -14,35 +14,35 @@ namespace CommunityEvents.Controllers.api
         List<Event> events = new List<Event>()
         {
           new Event(){Id = 0, UserId = 0, Title = "fun event", City = "Huntington", State = "WV",
-              Zip = 25705, Date = DateTime.Today.AddDays(5), Venue = "CTC",
+              Zip = 25701, Latitude=38.39878030293934, Longitude=-82.45671764403089, Date = DateTime.Today.AddDays(5), Venue = "CTC",
               Description =  "Church Service"},
 
           new Event(){Id = 1, UserId = 0, Title = "Craft Festival", City = "Huntington", State = "WV",
-              Zip = 25504, Date = DateTime.Today.AddDays(20), Venue = "Barboursville Park",
+              Zip = 25504, Latitude=38.38968486402137, Longitude=-82.30144616703348, Date = DateTime.Today.AddDays(20), Venue = "Barboursville Park",
               Description =  "Festival of crafts"},
 
           new Event(){Id = 2, UserId = 1, Title = "Country Concert", City = "Charleston", State = "WV",
-              Zip = 25302, Date = DateTime.Today.AddDays(8), Venue = "Charleston Civic Center",
+              Zip = 25302, Latitude=38.35613520440844, Longitude=-81.63998837286755, Date = DateTime.Today.AddDays(8), Venue = "Charleston Civic Center",
               Description =  "Local Country Concert"},
 
           new Event(){Id = 3, UserId = 2, Title = "Play", City = "Ashland", State = "KY",
-              Zip = 41101, Date = DateTime.Today.AddDays(90), Venue = "Paramount",
+              Zip = 41101, Latitude=38.480311047866515, Longitude=-82.64287003238847, Date = DateTime.Today.AddDays(90), Venue = "Paramount",
               Description =  "Wicked the play"},
 
           new Event(){Id = 4, UserId = 3, Title = "State Fair", City = "Ashland", State = "KY",
-              Zip = 41101, Date = DateTime.Today.AddDays(5), Venue = "Ashland Riverfront",
+              Zip = 41101, Latitude=38.48221719562341, Longitude=-82.63906132080415,Date = DateTime.Today.AddDays(5), Venue = "Ashland Riverfront",
               Description =  "State Fair"},
 
           new Event(){Id = 5, UserId = 3, Title = "Yoga in the park", City = "Huntington", State = "WV",
-              Zip = 25705, Date = DateTime.Today.AddDays(20), Venue = "Ritter Park",
+              Zip = 25705, Latitude=38.407348161450884, Longitude=-82.43801454403074, Date = DateTime.Today.AddDays(20), Venue = "Ritter Park",
               Description =  "Yoga"},
 
           new Event(){Id = 6, UserId = 3, Title = "Baseball Game", City = "Charleston", State = "WV",
-              Zip = 25302, Date = DateTime.Today.AddDays(25), Venue = "Appalachian Power Park",
+              Zip = 25302, Latitude=38.34924540224724, Longitude=-81.62489628821137, Date = DateTime.Today.AddDays(25), Venue = "Appalachian Power Park",
               Description =  "Baseball Game"},
 
           new Event(){Id = 7, UserId = 4, Title = "Pumpkin Festival", City = "Milton", State = "WV",
-              Zip = 25541, Date = DateTime.Today.AddDays(240), Venue = "CTC",
+              Zip = 25541, Latitude=38.430538393986446, Longitude=-82.13123816122527, Date = DateTime.Today.AddDays(240), Venue = "CTC",
               Description =  "WV Pumpkin Festival"},
         };
 
@@ -61,16 +61,18 @@ namespace CommunityEvents.Controllers.api
                 City = newEvent.City,
                 State = newEvent.State,
                 Zip = newEvent.Zip,
+                Latitude = newEvent.Latitude,
+                Longitude = newEvent.Longitude,
                 Date = newEvent.Date,
                 Venue = newEvent.Venue,
                 Description = newEvent.Description
-            });
+            }) ;
             return Ok();
         }
 
         [HttpPost]
         public Boolean AddEventDetails(int id, int userId, string title, string city,
-            string state, long zip, DateTime date, string venue, string description)
+            string state, long zip, double latitude, double longitude, DateTime date, string venue, string description)
         {
             
             var eventsList = new List<Event>();
@@ -83,6 +85,8 @@ namespace CommunityEvents.Controllers.api
                 City = city,
                 State = state,
                 Zip = zip,
+                Latitude = latitude,
+                Longitude = longitude,
                 Date = date,
                 Venue = venue,
                 Description = description
@@ -148,7 +152,7 @@ namespace CommunityEvents.Controllers.api
 
         [HttpPut]
         public string UpdateEventDetails(string Title, int Id, string City, 
-            string State, long Zip, DateTime Date, string Venue, string Description)
+            string State, long Zip, double Latitude, double Longitude, DateTime Date, string Venue, string Description)
         {
             return "Event details Updated with Title: " + Title + ", Id: " + Id + 
                 ", City: " + City + ", State: " + State + ", Zip: " + Zip + ", Date: " 
