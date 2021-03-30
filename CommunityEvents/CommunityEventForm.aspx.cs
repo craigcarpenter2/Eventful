@@ -14,6 +14,7 @@ namespace CommunityEvents
     public partial class EventWebForm : System.Web.UI.Page
     {
 
+        IEnumerable<Event> dataObjects;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +32,7 @@ namespace CommunityEvents
 
         protected void GetLocalEvents_Click(object sender, EventArgs e)
         {
-            IEnumerable<Event> dataObjects = null;
+            dataObjects = null;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44324/api/event");
@@ -108,6 +109,9 @@ namespace CommunityEvents
                     ResultTable.Rows.Add(tRow);
                 }
             }
+
+            //call buildmap 
+            ScriptManager.RegisterStartupScript(this.Page, typeof(Page), "text", "buildMap()", true);
 
         }
     }

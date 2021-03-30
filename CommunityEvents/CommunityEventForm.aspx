@@ -27,19 +27,8 @@
         <div><h1>Welcome to Eventful!</h1></div>
         <asp:TextBox ID="ZipCode" runat="server" placeholder="Enter local zip code"></asp:TextBox>
         <asp:Button ID="GetLocalEvents" runat="server" Text="Get Local Events" OnClick="GetLocalEvents_Click" />
-    </form>
-    <table runat="server" id="ResultTable" border="1" style="width:100%;">
-        <tr>
-            <th>Title</th>
-            <th>Time and Date</th>
-            <th>Venue</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip</th>
-            <th>Description</th>
-        </tr>
-    </table>
-    <div>
+
+        <div>
         <!--area to create open street map-->
         <div id="map"></div> 
                 
@@ -52,12 +41,58 @@
     </div>
 
     <script>
+
+
+
+        document.getElementById("map").style.height = "300px";
+
+        //initialize map
+        const map = L.map('map');
+
+        // Get the tile layer from OpenStreetMaps 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            // Specify the maximum zoom of the map 
+            maxZoom: 22,
+
+            // Set the attribution for OpenStreetMaps 
+            attribution: ' <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Set the view of the map 
+        // with the latitude, longitude and the zoom value 
+        map.setView([38.42369328698392, -82.42647887471767], 15);
+
+
         function buildMap() {
+
+            
+
+                
+
+            // Set the view of the map 
+            // with the latitude, longitude and the zoom value 
+            map.setView([34.92235813668116, -82.44061981525645], 15);
+
+
+
 
 
         }
 
-    </script>
+        </script>
+    </form>
+    <table runat="server" id="ResultTable" border="1" style="width:100%;">
+        <tr>
+            <th>Title</th>
+            <th>Time and Date</th>
+            <th>Venue</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Description</th>
+        </tr>
+    </table>
+    
 
 
 
