@@ -238,3 +238,7 @@ C:\Users\Chestnut\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvent
 C:\Users\Chestnut\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.csproj.CopyComplete
 C:\Users\Chestnut\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.dll
 C:\Users\Chestnut\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.pdb
+C:\Users\Andrew Wall\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.csprojAssemblyReference.cache
+C:\Users\Andrew Wall\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.csproj.CoreCompileInputs.cache
+C:\Users\Andrew Wall\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.dll
+C:\Users\Andrew Wall\Source\Repos\Eventful\CommunityEvents\obj\Debug\CommunityEvents.pdb

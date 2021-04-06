@@ -5,13 +5,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace CommunityEvents.Controllers.api
 {
     public class EventController : ApiController
     {
+        serial = new JavaScriptSerializer;
+
+        // Pulls serialized list of events from text file.
+        string serializedEvents = System.IO.File.ReadAllText("File Path"); // I don't know what the path should be
+        List<Event> events = serial.Deserialize<List<Event>>(serializedEvents);
+
         //List containing events in different zip codes
-        List<Event> events = new List<Event>()
+        /*List<Event> events = new List<Event>()
         {
           new Event(){Id = 0, UserId = 0, Title = "fun event", City = "Huntington", State = "WV",
               Zip = 25701, Latitude=38.39878030293934, Longitude=-82.45671764403089, Date = DateTime.Today.AddDays(5), Venue = "CTC",
@@ -44,7 +51,7 @@ namespace CommunityEvents.Controllers.api
           new Event(){Id = 7, UserId = 4, Title = "Pumpkin Festival", City = "Milton", State = "WV",
               Zip = 25541, Latitude=38.430538393986446, Longitude=-82.13123816122527, Date = DateTime.Today.AddDays(240), Venue = "CTC",
               Description =  "WV Pumpkin Festival"},
-        };
+        };*/
 
         [HttpPost]
         [Route ("api/Event/PostNewEvent")]
@@ -67,6 +74,11 @@ namespace CommunityEvents.Controllers.api
                 Venue = newEvent.Venue,
                 Description = newEvent.Description
             }) ;
+
+            // Saves changes to the file.
+            serializedEvents = serial.Serialize(events);
+            File.WriteAllTextAsync("File Path", serializedEvents);
+
             return Ok();
         }
 
@@ -91,6 +103,10 @@ namespace CommunityEvents.Controllers.api
                 Description = description
             });
             //print event details to make sure its working??
+
+            // Saves changes to the file.
+            serializedEvents = serial.Serialize(events);
+            File.WriteAllTextAsync("File Path", serializedEvents);
 
             return true;
              
