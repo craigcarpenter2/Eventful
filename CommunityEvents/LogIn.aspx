@@ -7,13 +7,13 @@
     <title></title>
 </head>
 <body>
-    <form id="login" runat="server">
-        <div>
-            <div>
+    <form id="login" runat="server" style="text-align: center;">
+        <div style="margin-top: 200px;">
+            <div style="color:forestgreen;">
                 <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
                 <asp:TextBox ID="Username" runat="server"></asp:TextBox>
             </div>
-            <div>
+            <div style="color:forestgreen; padding-bottom: 10px;">
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 <asp:TextBox ID="Password" runat="server"></asp:TextBox>
             </div>
