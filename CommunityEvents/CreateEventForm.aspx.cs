@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Dynamic;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace CommunityEvents
 {
@@ -57,7 +58,7 @@ namespace CommunityEvents
             //api
             string state = null;
             string city = null ;
-            string zip = null ;
+            int zip = -1;
 
             using (var client = new HttpClient())
             {
@@ -73,11 +74,13 @@ namespace CommunityEvents
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var data = response.Content.ReadAsAsync<ExpandoObject>();
-                    var _dataResponse = JToken.Parse(JsonConvert.SerializeObject(data));
-                    state = _dataResponse["principalSubdivision"].ToString();
-                    city = _dataResponse["city"].ToString();
-                    zip = _dataResponse["postcode"].ToString();
+                    string result = response.Content.ReadAsStringAsync().Result;
+
+                    JObject data = (JObject)JsonConvert.DeserializeObject(result);
+
+                    state = data["principalSubdivision"].Value<string>();
+                    city = data["city"].Value<string>();
+                    zip = data["postcode"].Value<int>();
                 }
 
                 else
@@ -90,19 +93,22 @@ namespace CommunityEvents
 
 
 
-
-
+            int userId = -1;
+            if (Session["UserId"] != null)
+            {
+                userId = (int)Session["UserId"];
+            }
 
 
             Event newEvent = new Event()
             {
                 Id = 1,
-                UserId = (int) Session["UserId"],
+                UserId = userId,
                 Title = Title.Text,
                 Venue = Venue.Text,
                 City = city,
                 State = state,
-                Zip = long.Parse(zip),
+                Zip = Convert.ToInt64(zip),
                 Latitude = Double.Parse(Latitude.Text),
                 Longitude = Double.Parse(Longitude.Text),
                 Date = eventDateTime,

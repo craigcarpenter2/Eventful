@@ -20,6 +20,12 @@
             <div>
                 <asp:Button ID="Button1" runat="server" Text="Log In" OnClick="Button1_Click" />
             </div>
+            <div>
+                <asp:Label ID="LogInCredentialError" runat="server" Text="Invalid Login" Visible="false"></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="LogInServerError" runat="server" Text="Server error." Visible="false"></asp:Label>
+            </div>
             
         </div>
         <asp:Button ID="NoAccount" runat="server" Text="Continue Without Account" OnClick="NoAccount_Click" />

@@ -103,7 +103,7 @@
                     latitude = e.latlng.lat;
                     longitude = e.latlng.lng;
                     document.getElementById('<%=Latitude.ClientID%>').value = latitude;
-                    document.getElementById('<%=Longitude.ClientID%>').value = latitude;
+                    document.getElementById('<%=Longitude.ClientID%>').value = longitude;
 
                 }
 

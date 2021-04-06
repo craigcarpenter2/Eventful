@@ -14,6 +14,7 @@ namespace CommunityEvents.Controllers.api
         {
             new User()
             {
+                UserId = 0,
                 Username = "Eric",
                 Password = "Shoemaker",
                 Email = "shoemaker30@marshall.edu",
@@ -23,9 +24,11 @@ namespace CommunityEvents.Controllers.api
         };
 
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            var userList = new List<User>();
+            userList.AddRange(users);
+            return userList;
         }
 
         // GET api/<controller>/5
