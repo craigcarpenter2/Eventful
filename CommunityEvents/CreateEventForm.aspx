@@ -17,19 +17,19 @@
 </head>
 <body>
     <!--Navigation Options-->
-    <ul>
-        <li><a href="CommunityEventForm.aspx">See Nearby Events</a></li>
-        <li><a href="#">Post New Event</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">API</a></li>
-        <li><a runat="server" id="MyProfileLink" href="UserProfile.aspx">My Profile</a></li>
+    <ul style="text-align: left; color:forestgreen">
+        <li><a href="CommunityEventForm.aspx" style="color:forestgreen">See Nearby Events</a></li>
+        <li><a href="#" style="color:forestgreen">Post New Event</a></li>
+        <li><a href="#" style="color:forestgreen">About Us</a></li>
+        <li><a href="#" style="color:forestgreen">API</a></li>
+        <li><a runat="server" id="MyProfileLink" href="UserProfile.aspx" style="color:forestgreen">My Profile</a></li>
     </ul>
 
-    <form id="CreateNewEvent" runat="server">
+    <form id="CreateNewEvent" runat="server" style="text-align:center;">
         <h1>Create New Event</h1>
         <div>
             <!--Get the Title, Venue, Description, Time from the user-->
-            <table>
+            <table class="center">
                 <tr>
                     <td><asp:Label ID="Label1" runat="server" Text="Title:"></asp:Label></td>
                     <td><asp:TextBox ID="Title" runat="server" placeholder=""></asp:TextBox></td>
@@ -47,10 +47,11 @@
                     <td><asp:TextBox ID="Time" runat="server" placeholder="00:00"></asp:TextBox></td>
                 </tr>
             </table>
-
+			
+			<div style="margin-left: auto; margin-right: auto; text-align: center; display:inline-block; padding-bottom: 30px;">
             <!--calendar to pick date of event-->
             <asp:Calendar ID="Calendar" runat="server" OnSelectionChanged="Calendar_SelectionChanged"></asp:Calendar>
-
+			</div>
 
 
             <div>
