@@ -6,3 +6,15 @@
     width: 100%;
     height: 0px;
 }
+
+.navbar{
+    background-color: black;
+}
+
+.navbar a{
+    color:lightgrey;
+}
+.navbar a:hover{
+    color:white;
+}
+

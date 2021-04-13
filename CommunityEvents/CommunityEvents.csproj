@@ -104,6 +104,7 @@
     <Content Include="CommunityEventForm.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateEventForm.aspx" />
+    <Content Include="Data\Event.txt" />
     <Content Include="Global.asax" />
     <Content Include="LogIn.aspx" />
     <Content Include="Style\CommunityEventForm.css" />

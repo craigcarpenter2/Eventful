@@ -1,17 +1,30 @@
 ﻿using CommunityEvents.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace CommunityEvents.Controllers.api
 {
     public class EventController : ApiController
     {
+        static JavaScriptSerializer serial = new JavaScriptSerializer();
+        // Pulls serialized list of events from text file.
+
+        static string eventDataDirectory = getDataDirectory();
+        static string serializedEvents;// = System.IO.File.ReadAllText(eventDataDirectory); 
+        List<Event> events = getEventList();
+
+
+       
+
+        /*
         //List containing events in different zip codes
-        List<Event> events = new List<Event>()
+        List<Event> hardcodedEvents = new List<Event>()
         {
           new Event(){Id = 0, UserId = 0, Title = "fun event", City = "Huntington", State = "WV",
               Zip = 25701, Latitude=38.39878030293934, Longitude=-82.45671764403089, Date = DateTime.Today.AddDays(5), Venue = "CTC",
@@ -45,10 +58,31 @@ namespace CommunityEvents.Controllers.api
               Zip = 25541, Latitude=38.430538393986446, Longitude=-82.13123816122527, Date = DateTime.Today.AddDays(240), Venue = "CTC",
               Description =  "WV Pumpkin Festival"},
         };
+        */
+
+        public static string getDataDirectory()
+        {
+            string directory = @"C:\Users\Chestnut\source\repos\Eventful\CommunityEvents\Controllers\api";
+            string parentDirectory = Directory.GetParent(directory).ToString();
+            parentDirectory = Directory.GetParent(parentDirectory).ToString();
+            string toReturn = parentDirectory + @"\Data\Event.txt";
+            Console.WriteLine(toReturn);
+            return toReturn;
+        }
+
+        public static List<Event> getEventList()
+        {
+            string serializedEvents = System.IO.File.ReadAllText(eventDataDirectory); // I don't know what the path should be
+            return serial.Deserialize<List<Event>>(serializedEvents);
+        }
 
         [HttpPost]
         [Route ("api/Event/PostNewEvent")]
         public IHttpActionResult PostNewEvent(Event newEvent){
+
+            
+            
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest("Invalid data.");
@@ -67,6 +101,13 @@ namespace CommunityEvents.Controllers.api
                 Venue = newEvent.Venue,
                 Description = newEvent.Description
             }) ;
+
+            //save changes to file
+            serializedEvents = serial.Serialize(events);
+            File.WriteAllText(eventDataDirectory, serializedEvents);
+
+            getDataDirectory();
+
             return Ok();
         }
 
