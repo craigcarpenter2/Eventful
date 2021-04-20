@@ -15,7 +15,7 @@ namespace CommunityEvents.Controllers.api
         static JavaScriptSerializer serial = new JavaScriptSerializer();
         // Pulls serialized list of events from text file.
 
-        static string eventDataDirectory = getDataDirectory();
+        static string eventDataDirectory = @"Data\Event.txt";
         static string serializedEvents;// = System.IO.File.ReadAllText(eventDataDirectory); 
         List<Event> events = getEventList();
 
@@ -60,15 +60,7 @@ namespace CommunityEvents.Controllers.api
         };
         */
 
-        public static string getDataDirectory()
-        {
-            string directory = @"C:\Users\Chestnut\source\repos\Eventful\CommunityEvents\Controllers\api";
-            string parentDirectory = Directory.GetParent(directory).ToString();
-            parentDirectory = Directory.GetParent(parentDirectory).ToString();
-            string toReturn = parentDirectory + @"\Data\Event.txt";
-            Console.WriteLine(toReturn);
-            return toReturn;
-        }
+       
 
         public static List<Event> getEventList()
         {
@@ -106,7 +98,6 @@ namespace CommunityEvents.Controllers.api
             serializedEvents = serial.Serialize(events);
             File.WriteAllText(eventDataDirectory, serializedEvents);
 
-            getDataDirectory();
 
             return Ok();
         }

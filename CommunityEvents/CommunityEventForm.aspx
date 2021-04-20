@@ -7,7 +7,7 @@
     <title>Events</title>
 
     <!--Import style sheet-->
-    <link rel="stylesheet" href="./Style/CommunityEventForm.css" />
+    <link rel="stylesheet" href="Style/CommunityEventForm.css" />
 
     <!-- map leaflet imports-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"

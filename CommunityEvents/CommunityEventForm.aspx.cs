@@ -36,7 +36,7 @@ namespace CommunityEvents
             dataObjects = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44324/api/event");
+                client.BaseAddress = new Uri("http://muportalapps.marshall.edu:8083/api/event");
 
                 // Add an Accept header for JSON format.
                 client.DefaultRequestHeaders.Accept.Add(
