@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
 
@@ -15,7 +16,7 @@ namespace CommunityEvents.Controllers.api
         static JavaScriptSerializer serial = new JavaScriptSerializer();
         // Pulls serialized list of events from text file.
 
-        static string eventDataDirectory = @"Data\Event.txt";
+        static string eventDataDirectory = HttpContext.Current.Server.MapPath("/Data/Event.txt");
         static string serializedEvents;// = System.IO.File.ReadAllText(eventDataDirectory); 
         List<Event> events = getEventList();
 
