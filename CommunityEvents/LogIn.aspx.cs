@@ -19,8 +19,6 @@ namespace CommunityEvents
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-
             IEnumerable<User> userList = null;
             using (var client = new HttpClient())
             {
