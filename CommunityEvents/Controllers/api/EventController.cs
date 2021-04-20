@@ -98,6 +98,7 @@ namespace CommunityEvents.Controllers.api
             serializedEvents = serial.Serialize(events);
             File.WriteAllText(eventDataDirectory, serializedEvents);
 
+            events = getEventList();
 
             return Ok();
         }
